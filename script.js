@@ -1,6 +1,7 @@
-const text = document.querySelector("span");
+const text = document.querySelector(".text");
 const randomBtn = document.querySelector(".dice-div");
 const container = document.querySelector(".container");
+const title = document.querySelector(".title");
 
 const quote = async function () {
   try {
@@ -8,6 +9,8 @@ const quote = async function () {
     const data = await res.json();
 
     text.textContent = data.slip.advice;
+    title.textContent = data.slip.id;
+    console.log(data);
     if (!container.style.display) container.style.display = "block";
   } catch (err) {
     console.error(`${err}: that's the problem`);
